@@ -333,11 +333,19 @@ table:has(.ignite-speaker) td:not(:first-child) {
 }
 
 .accommodation-guest {
-  display: flex;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
   align-items: center;
-  justify-content: center;
+  width: min(100%, 170px);
+  margin-inline: auto;
   gap: 6px;
+  text-align: left;
   white-space: normal;
+}
+
+.accommodation-guest:not(:has(.accommodation-avatar)) {
+  grid-template-columns: minmax(0, 1fr);
+  text-align: center;
 }
 
 .accommodation-guest + .accommodation-guest {
@@ -397,8 +405,11 @@ table:has(.ignite-speaker) td:not(:first-child) {
   }
 
   .accommodation-guest {
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    width: 100%;
     gap: 2px;
+    text-align: center;
   }
 
   .accommodation-avatar {
